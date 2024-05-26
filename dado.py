@@ -1,19 +1,19 @@
-class Dado:
-    __caras = 6
+import random
 
-    def __init__(self, fcaras):
-        self.setCaras(fcaras)
+class Dado:
+    __caras_permitidas = [4, 6, 8, 10, 12, 20, 120]
+
+    def __init__(self, caras):
+        self.set_caras(caras)
 
     def lanzar(self):
-        import random
         return random.randint(1, self.__caras)
 
-    def getCaras(self):
+    def get_caras(self):
         return self.__caras
 
-    def setCaras(self, fcaras):
-        caras_permitidas = [4, 6, 8, 10, 12, 20, 120]
-        if fcaras in caras_permitidas:
-            self.__caras = fcaras
+    def set_caras(self, caras):
+        if caras in self.__caras_permitidas:
+            self.__caras = caras
         else:
-            raise Exception("Numero de caras incorrecto"   )
+            raise ValueError(f"Número de caras incorrecto: {caras}. Debe ser uno de {self.__caras_permitidas}")

@@ -1,14 +1,20 @@
-import juego
+from juego import Juego
 
-x = juego.Juego(str(input("Introduce el nombre del primer jugador: ")),
-                     str(input("Introduce el nombre del segundo jugador: ")),
-                     int(input("Introduce el numero de caras para el primer dado: ")),
-                     int(input("Introduce el numero de caras para el segundo dado: ")),
-                     int(input("Introduce el numero de caras para el tercer dado: ")),
-                     int(input("Introduce el numero de lanzamientos: ")),
-                     input("¿Quieres ver los resultados intermedios por pantalla? (S/N): "))
+def main():
+    jugador1 = input("Introduce el nombre del primer jugador: ")
+    jugador2 = input("Introduce el nombre del segundo jugador: ")
+    caras1 = int(input("Introduce el número de caras para el primer dado: "))
+    caras2 = int(input("Introduce el número de caras para el segundo dado: "))
+    caras3 = int(input("Introduce el número de caras per al tercer dado: "))
+    lanzamientos = int(input("Introduce el número de lanzamientos: "))
+    intermedios = input("¿Quieres ver los resultados intermedios por pantalla? (S/N): ")
 
+    try:
+        juego = Juego(jugador1, jugador2, caras1, caras2, caras3, lanzamientos, intermedios)
+        juego.jugar()
+        juego.mostrar_resultados()
+    except ValueError as e:
+        print(f"Error: {e}")
 
-
-x.llllllllllllllllllll()
-x.most()
+if __name__ == "__main__":
+    main()
