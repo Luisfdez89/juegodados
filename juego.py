@@ -1,7 +1,11 @@
 from dado import Dado
 
+
 class Juego:
     def __init__(self, jugador1, jugador2, caras1, caras2, caras3, lanzamientos, intermedios):
+        self.lanzamientos = None
+        self.jugador1 = None
+        self.jugador2 = None
         self.set_jugador1(jugador1)
         self.set_jugador2(jugador2)
         self.set_lanzamientos(lanzamientos)
@@ -23,15 +27,15 @@ class Juego:
         self.jugador2 = jugador2
 
     def set_lanzamientos(self, lanzamientos):
-        if not 2 <= lanzamientos <= 100:
-            raise ValueError("El número de lanzamientos debe estar entre 2 y 100")
+        if not 2 <= lanzamientos <= 1000:
+            raise ValueError("El número de lanzamientos debe estar entre 2 y 1000")
         self.lanzamientos = lanzamientos
 
     def jugar(self):
         self.r1 = 0
         self.r2 = 0
         for x in range(self.lanzamientos):
-            # jugador1
+            # Jugador 1
             s1, s2, s3 = self.dado1.lanzar(), self.dado2.lanzar(), self.dado3.lanzar()
             self.r1 += s1 + s2 + s3
 
@@ -39,7 +43,7 @@ class Juego:
                 print(f"Lanzamiento {x + 1}:")
                 print(f"{self.jugador1}: {s1} {s2} {s3} ({s1 + s2 + s3})")
 
-            # jugador2
+            # Jugador 2
             s1, s2, s3 = self.dado1.lanzar(), self.dado2.lanzar(), self.dado3.lanzar()
             self.r2 += s1 + s2 + s3
 

@@ -1,5 +1,6 @@
 from juego import Juego
 
+
 def main():
     jugador1 = input("Introduce el nombre del primer jugador: ")
     jugador2 = input("Introduce el nombre del segundo jugador: ")
@@ -15,6 +16,7 @@ def main():
         juego.mostrar_resultados()
     except ValueError as e:
         print(f"Error: {e}")
+
 
 if __name__ == "__main__":
     main()

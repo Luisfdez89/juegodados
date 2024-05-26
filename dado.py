@@ -1,9 +1,11 @@
 import random
 
+
 class Dado:
-    __caras_permitidas = [4, 6, 8, 10, 12, 20, 120]
+    __caras_permitidas = [4, 6, 8, 10, 12, 20, 120, 200, 300]
 
     def __init__(self, caras):
+        self.__caras = None
         self.set_caras(caras)
 
     def lanzar(self):
